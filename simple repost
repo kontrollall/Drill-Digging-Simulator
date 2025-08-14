@@ -29,6 +29,19 @@ end
 end
 end)
 
+Tab:CreateButton("Instant Finish", function()
+
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local teleportPath = workspace.Worlds.Main.EndZone.EndCircle.Part
+
+local character = player.Character or player.CharacterAdded:Wait()
+local hrp = character:WaitForChild("HumanoidRootPart")
+
+hrp.CFrame = teleportPath.CFrame + Vector3.new(0, 3, 0)
+
+end)
 
 local Tab = Window:NewSection("Links")
 
