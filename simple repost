@@ -1,0 +1,46 @@
+local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
+local Window = Library:NewWindow("Script")
+ 
+local Tab = Window:NewSection("Credits: TGMANKASKE")
+
+Tab:CreateToggle("Auto Dig", function(no)
+_G.Getsd = no
+while _G.Getsd== true do
+    wait() 
+
+local player = game:GetService("Players").LocalPlayer
+local character = player.Character or plyer.CharacterAdded:Wait()
+local replicatedStorage = game:GetService("ReplicatedStorage")
+local giveCashRemote = replicatedStorage:WaitForChild("GiveCash")
+
+local itemNames = {
+	"Rusty", "Steel", "Golden", "Candy", "Neon",
+	"Cyber", "Diamond", "Lava", "Infinity", "VIP", "Quantity"
+}
+
+for _, name in ipairs(itemNames) do
+	local item = character:FindFirstChild(name)
+	if item then
+		local args = { item }
+		giveCashRemote:FireServer(unpack(args))
+	end
+end
+
+end
+end)
+
+
+local Tab = Window:NewSection("Links")
+
+Tab:CreateButton("Discord GP", function()
+
+  setclipboard('https://discord.gg/esYJzYnsfC')
+
+end)
+                     
+Tab:CreateButton("Youtube CH", function()
+
+  setclipboard('https://www.youtube.com/@TGMANKASKE')
+
+end)
+
